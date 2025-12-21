@@ -60,6 +60,36 @@ g++ main.cpp -o fps_game.exe -lraylib -lopengl32 -lgdi32 -lwinmm
 *Note: Ensure your compiler can find the Raylib headers and library files.*
 
 ## Controls
-- **WASD**: Move
-- **Mouse**: Look around
-- **Left Click**: Shoot
+- **Space**: Jump
+- **1 / 2**: Switch Weapons (Rifle / Revolver)
+- **R**: Reload (Manual)
+
+## Customizing Muzzle Flash
+
+You can adjust the position of the muzzle flash by editing `main.cpp`. Look for the initialization section:
+
+```cpp
+// Rifle
+weapons[0].flashOffsetX = 60;   
+weapons[0].flashOffsetY = 100;  
+
+// Revolver
+weapons[1].flashOffsetX = 60; 
+weapons[1].flashOffsetY = 110; 
+```
+
+### How Coordinates (Pixels) Work
+In computer graphics (and this game), the screen coordinates work like a grid:
+- **X Axis (Horizontal)**: 0 is the Left side. Increasing the value moves **Right**.
+- **Y Axis (Vertical)**: 0 is the Top. Increasing the value moves **Down**.
+
+**Visual Guide:**
+- To move the flash **Left**, **Decrease** `flashOffsetX`.
+- To move the flash **Right**, **Increase** `flashOffsetX`.
+- To move the flash **Up**, **Decrease** `flashOffsetY`.
+- To move the flash **Down**, **Increase** `flashOffsetY`.
+
+Start by changing values by 10 or 20 pixels at a time to fine-tune the position.
+
+After changing these values, re-compile the game to see the changes.
+
